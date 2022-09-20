@@ -8,7 +8,7 @@ function createSessionStore() {
   const store = new MongoDbStore({
     uri: 'mongodb://127.0.0.1:27017',
     databaseName: 'online-shop',
-    collection: 'session'
+    collection: 'sessions'
   });
 
   return store;
