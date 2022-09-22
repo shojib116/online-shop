@@ -6,8 +6,11 @@ function getNewProduct(req, res) {
   res.render('admin/products/new-product');
 }
 
-function createNewProducts() {
+function createNewProduct(req, res) {
+  console.log(req.body);
+  console.log(req.file);
 
+  res.redirect('/admin/products');
 }
 
 
@@ -15,5 +18,5 @@ function createNewProducts() {
 module.exports = {
   getProducts: getProducts,
   getNewProduct: getNewProduct,
-  createNewProducts: createNewProducts
+  createNewProduct: createNewProduct
 };
