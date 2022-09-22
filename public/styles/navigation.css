@@ -88,6 +88,7 @@ main {
   height: 20rem;
   width: 90%;
   margin: var(--space-4) auto;
+  text-align: center;
 }
 
 #mobile-menu .nav-items a,
