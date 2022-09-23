@@ -64,6 +64,18 @@ async function updateProduct(req, res, next) {
 }
 
 
+async function deleteProduct(req, res, next) {
+  try {
+    const product = Product.findById(req.params.id);
+    await (await product).removeProduct();
+  } catch(error) {
+    next(error);
+    return;
+  }
+
+  res.json({message: 'Deleted product!'});
+}
+
 
 
 module.exports = {
@@ -71,5 +83,6 @@ module.exports = {
   getNewProduct: getNewProduct,
   createNewProduct: createNewProduct,
   getUpdateProduct: getUpdateProduct,
-  updateProduct: updateProduct
+  updateProduct: updateProduct,
+  deleteProduct: deleteProduct
 };
