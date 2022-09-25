@@ -31,7 +31,7 @@ class Product {
       error.code = 404;
       throw error;
     }
-
+    
     return new Product(product);
   }
 
