@@ -4,7 +4,7 @@
   background-color: var(--color-gray-700);
   padding: var(--space-4);
   margin: var(--space-4) 0;
-  border-radius: var(--border-radius-small);
+  border-radius: var(--border-radius-medium);
 }
 
 .cart-item h2 {
@@ -13,8 +13,6 @@
 }
 
 .cart-item input {
-  width: 3rem;
-  text-align: center;
   font: inherit;
   padding: var(--space-2);
   border-radius: var(--border-radius-small);
@@ -28,7 +26,8 @@
 
 #cart-total {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
@@ -36,13 +35,16 @@
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--color-primary-500);
-  margin: .8rem 0 0 0;
 }
-
 
 @media (min-width: 48rem) {
   .cart-item {
     flex-direction: row;
     justify-content: space-between;
   }
+
+  #cart-total {
+    flex-direction: row;
+    justify-content: space-between;
+  }  
 }

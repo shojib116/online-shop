@@ -1,5 +1,5 @@
-const imagePickerElement = document.querySelector("#image-upload-control input");
-const imagePreviewElement = document.querySelector("#image-upload-control img");
+const imagePickerElement = document.querySelector('#image-upload-control input');
+const imagePreviewElement = document.querySelector('#image-upload-control img');
 
 function updateImagePreview() {
   const files = imagePickerElement.files;
@@ -8,13 +8,11 @@ function updateImagePreview() {
     imagePreviewElement.style.display = 'none';
     return;
   }
-  console.log(files);
 
   const pickedFile = files[0];
 
   imagePreviewElement.src = URL.createObjectURL(pickedFile);
   imagePreviewElement.style.display = 'block';
 }
-
 
 imagePickerElement.addEventListener('change', updateImagePreview);

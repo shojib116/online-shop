@@ -2,26 +2,25 @@ const bcrypt = require('bcryptjs');
 
 const db = require('../data/database');
 
-
 class User {
   constructor(email, password, fullname, street, postal, city) {
     this.email = email;
     this.password = password;
-    this.fullname = fullname;
+    this.name = fullname;
     this.address = {
       street: street,
-      postal: postal,
-      city: city
+      postalCode: postal,
+      city: city,
     };
   }
 
   getUserWithSameEmail() {
-    return db.getDb().collection('users').findOne({email: this.email});
+    return db.getDb().collection('users').findOne({ email: this.email });
   }
 
   async existsAlready() {
     const existingUser = await this.getUserWithSameEmail();
-    if(existingUser) {
+    if (existingUser) {
       return true;
     }
     return false;
@@ -33,8 +32,8 @@ class User {
     await db.getDb().collection('users').insertOne({
       email: this.email,
       password: hashedPassword,
-      name: this.fullname,
-      address: this.address
+      name: this.name,
+      address: this.address,
     });
   }
 
@@ -42,6 +41,5 @@ class User {
     return bcrypt.compare(this.password, hashedPassword);
   }
 }
-
 
 module.exports = User;
