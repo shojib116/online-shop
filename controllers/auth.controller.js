@@ -102,6 +102,11 @@ function getLogin(req, res) {
     };
   }
 
+  if (res.locals.isAuth || res.locals.isAdmin) {
+    res.redirect('/');
+    return;
+  }
+
   res.render('customer/auth/login', { inputData: sessionData });
 }
 
